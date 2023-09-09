@@ -1,0 +1,66 @@
+﻿<Window x:Class="DateB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DateB"
+        mc:Ignorable="d"
+        Title="Длительность жизни" Height="450" Width="800"
+        FontSize="25" FontFamily="Avenir"
+        Foreground="#333333">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="*"/>
+            <RowDefinition  Height="4*"/>
+            <RowDefinition  Height="30"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Калькулятор расчета возраста" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="DemiBold"/>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Дата рождения" Margin="0,0,20,0"/>
+                <DatePicker Name="DP"/>
+            </StackPanel>
+            <Button Content="Вычислить" Click="Solve" Style="{StaticResource ButtonStyle}"/>
+            <StackPanel x:Name="Result" Margin="0,40,0,0" Visibility="Collapsed">
+                <StackPanel>
+                    <TextBlock x:Name="Life" Text="Прожитое время:" FontWeight="Bold"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="В годах: "/>
+                        <TextBlock x:Name="Years"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="В месяцах: "/>
+                        <TextBlock x:Name="Month"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="В днях: "/>
+                        <TextBlock x:Name="Days"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="День недели рождения: " FontWeight="Bold"/>
+                    <TextBlock x:Name="DayWeek"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Дни рождения в этот день недели: " FontWeight="Bold"/>
+                    <TextBlock x:Name="DayWeekAll"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Колличество прожитых високосных лет: " FontWeight="Bold"/>
+                    <TextBlock x:Name="CountDayLeapYear"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Високосные прожитые года:" FontWeight="Bold"/>
+                    <TextBlock x:Name="LeapYear"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</Window>
