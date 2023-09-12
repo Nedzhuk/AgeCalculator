@@ -53,5 +53,10 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Foreground" Value="#333333"/>
+        </Style>
     </Application.Resources>
 </Application>

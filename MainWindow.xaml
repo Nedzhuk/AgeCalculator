@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DateB"
         mc:Ignorable="d"
-        Title="Длительность жизни" Height="450" Width="800"
+        Title="Calculator" Height="450" Width="800"
         FontSize="25" FontFamily="Avenir"
         Foreground="#333333">
     <Grid>
@@ -22,11 +22,11 @@
         <TextBlock Text="Калькулятор расчета возраста" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="DemiBold"/>
         <StackPanel  Grid.Row="1" Grid.Column="1">
             <StackPanel Name="DateBlock" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Выберите дату рождения" Margin="0,0,20,-10"/>
+                <TextBlock Text="Выберите дату рождения" Margin="0,0,20,-10" Foreground="#1a1a1a"/>
                 <DatePicker Name="DP"/>
             </StackPanel>
             <StackPanel x:Name="Calendar">
-                <TextBlock Text="Выберите календарь для большей информации:" Margin="-40,10" HorizontalAlignment="Center"/>
+                <TextBlock Text="Выберите календарь для большей информации:" Margin="-40,10" HorizontalAlignment="Center" Foreground="#1a1a1a"/>
                 <RadioButton Content="Восточный календарь" Name="CalVest"/>
                 <RadioButton Content="Древнеславянский календарь"  Name="CalSlav"/>
             </StackPanel>
@@ -34,33 +34,39 @@
             <Button Content="Вычислить" Name="ButtonSolve" Click="Solve" Style="{StaticResource ButtonStyle}"/>
             <Button Content="Сбросить" Name="ButtonThrow" Click="Throw" Style="{StaticResource ButtonTrowStyle}" Visibility="Collapsed"/>
 
-            <StackPanel x:Name="Result" Margin="0,40,0,0" Visibility="Collapsed">
-                <StackPanel>
-                    <TextBlock Text="Прожитое время:" FontWeight="Bold"/>
-                    <TextBlock Name="Life" Text=""/>
-                </StackPanel>
+            <ScrollViewer Name="Scroll" HorizontalScrollBarVisibility="Visible" Visibility="Collapsed">
+                <StackPanel x:Name="Result" Margin="0,40,0,0" Visibility="Collapsed">
+                    <StackPanel>
+                        <TextBlock Text="Прожитое время:" FontWeight="Bold"/>
+                        <TextBlock Name="Life" Text=""/>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="День недели рождения: " FontWeight="Bold"/>
-                    <TextBlock x:Name="DayWeek"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="День недели рождения: " FontWeight="Bold"/>
+                        <TextBlock x:Name="DayWeek"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Дни рождения в этот день недели: " FontWeight="Bold"/>
+                        <TextBlock x:Name="DayWeekAll"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Колличество прожитых високосных лет: " FontWeight="Bold"/>
+                        <TextBlock x:Name="CountDayLeapYear"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Високосные прожитые года:" FontWeight="Bold"/>
+                        <TextBlock x:Name="LeapYear"/>
+                    </StackPanel>
+                    <StackPanel Name="EasternCalendar" Orientation="Horizontal">
+                        <TextBlock Text="Животное по китайскому гороскопу:" FontWeight="Bold"/>
+                        <TextBlock x:Name="YearAnimal"/>
+                    </StackPanel>
+                    <StackPanel Name="SlavicCalendar" Orientation="Horizontal">
+                        <TextBlock Text="Божество по древнеславянскому гороскопу:" FontWeight="Bold"/>
+                        <TextBlock x:Name="YearGood"/>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Дни рождения в этот день недели: " FontWeight="Bold"/>
-                    <TextBlock x:Name="DayWeekAll"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Колличество прожитых високосных лет: " FontWeight="Bold"/>
-                    <TextBlock x:Name="CountDayLeapYear"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Високосные прожитые года:" FontWeight="Bold"/>
-                    <TextBlock x:Name="LeapYear"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Тотемное животное:" FontWeight="Bold"/>
-                    <TextBlock x:Name="YearAnimal"/>
-                </StackPanel>
-            </StackPanel>
+            </ScrollViewer>
         </StackPanel>
 
     </Grid>
