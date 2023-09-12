@@ -20,27 +20,24 @@
             <RowDefinition  Height="30"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Калькулятор расчета возраста" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontWeight="DemiBold"/>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Дата рождения" Margin="0,0,20,0"/>
+        <StackPanel  Grid.Row="1" Grid.Column="1">
+            <StackPanel Name="DateBlock" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Выберите дату рождения" Margin="0,0,20,-10"/>
                 <DatePicker Name="DP"/>
             </StackPanel>
-            <Button Content="Вычислить" Click="Solve" Style="{StaticResource ButtonStyle}"/>
+            <StackPanel x:Name="Calendar">
+                <TextBlock Text="Выберите календарь для большей информации:" Margin="-40,10" HorizontalAlignment="Center"/>
+                <RadioButton Content="Восточный календарь" Name="CalVest"/>
+                <RadioButton Content="Древнеславянский календарь"  Name="CalSlav"/>
+            </StackPanel>
+
+            <Button Content="Вычислить" Name="ButtonSolve" Click="Solve" Style="{StaticResource ButtonStyle}"/>
+            <Button Content="Сбросить" Name="ButtonThrow" Click="Throw" Style="{StaticResource ButtonTrowStyle}" Visibility="Collapsed"/>
+
             <StackPanel x:Name="Result" Margin="0,40,0,0" Visibility="Collapsed">
                 <StackPanel>
-                    <TextBlock x:Name="Life" Text="Прожитое время:" FontWeight="Bold"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="В годах: "/>
-                        <TextBlock x:Name="Years"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="В месяцах: "/>
-                        <TextBlock x:Name="Month"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="В днях: "/>
-                        <TextBlock x:Name="Days"/>
-                    </StackPanel>
+                    <TextBlock Text="Прожитое время:" FontWeight="Bold"/>
+                    <TextBlock Name="Life" Text=""/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal">
@@ -59,8 +56,12 @@
                     <TextBlock Text="Високосные прожитые года:" FontWeight="Bold"/>
                     <TextBlock x:Name="LeapYear"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Тотемное животное:" FontWeight="Bold"/>
+                    <TextBlock x:Name="YearAnimal"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
-        
+
     </Grid>
 </Window>
